@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Splcompiler</title>
+
+    <script async type="application/dart" src="splcompiler.dart"></script>
+    <script async src="packages/browser/dart.js"></script>
+
+    <link rel="stylesheet" href="splcompiler.css">
+  </head>
+  <body>
+<h1>SPL to SSM (Simple Stack Machine) compiler</h1>
+<div>Author: Danny Hendrix<br/>
+Original compiler in Haskell: Danny Hendrix and Harm Berntsen</br>
+SSM: <a href="http://www.staff.science.uu.nl/~dijks106/SSM/">http://www.staff.science.uu.nl/~dijks106/SSM/</a><br/>
+Source: <a href="http://www.github.com">Github</a><br/>
+Note: This conversion does not include the type checker.
+</div>
+    <h1>SPLCompiler</h1>
+
+    <p>Enter spl code here:</p>
+
+    <textarea id="txt_source" style="height:400px; width:80%;">Int sa = 7;
+
+int f(int a, bool b)
+{
+ if(b)
+ {
+  return a;
+ }
+ else
+ {
+  return 3;
+ }
+}
+
+void main()
+{
+ int a = 4;
+ int b = f(5,True);
+ int c = sa+b*a;
+ print(b);
+ return c;
+}</textarea>
+<br/>
+    <button id="btn_compile">Compile</button>
+
+<h1>SSM interpreter</h1>
+  </body>
+</html>

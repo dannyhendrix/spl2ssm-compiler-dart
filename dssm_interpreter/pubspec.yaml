@@ -1,0 +1,7 @@
+name: dssm_interpreter
+version: 1.0.0
+author: Danny Hendrix
+description: "Implementation of SSM (Simple Stack Machine) interpreter\r\n\r\nSSM:\
+  \ http://www.staff.science.uu.nl/~dijks106/SSM/"
+dependencies:
+  browser: any

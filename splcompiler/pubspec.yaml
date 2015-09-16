@@ -1,0 +1,7 @@
+name: splcompiler
+description: A sample web application
+dependencies:
+  browser: any
+
+  dssm_interpreter:
+    path: ../dssm_interpreter
