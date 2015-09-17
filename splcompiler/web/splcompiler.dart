@@ -32,6 +32,25 @@ class CompilerUI
         compile(txt_source.value);
       });
     createInterpreterUI();
+    
+    //show grammar
+    DivElement txt_grammar = querySelector("#grammar");
+    txt_grammar.style.display = "none";
+    AnchorElement txt_viewgrammar = querySelector("#viewgrammar");
+    bool view = false;
+    txt_viewgrammar.onClick.listen((MouseEvent e){
+      if(view)
+      {
+        txt_viewgrammar.text = "View grammar";
+        txt_grammar.style.display = "none";
+      }
+      else
+      {
+        txt_viewgrammar.text = "Hide grammar";
+        txt_grammar.style.display = "block";
+      }
+      view = !view;
+    });
   }
 
   void compile(String s)

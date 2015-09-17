@@ -82,3 +82,11 @@ table#register th {
   background:blue;
   border-radius: 5px;
 }
+
+#grammar
+{
+display: block;
+background: white;
+padding: 10px;
+line-height: 150%;
+}

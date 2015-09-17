@@ -20,6 +20,22 @@ Source: <a href="https://github.com/dannyhendrix/spl2ssm-compiler-dart">Github</
 Note: This conversion does not include the type checker.
 </div>
     <h1>SPLCompiler</h1>
+    <a href="#" id="viewgrammar">View Grammar</a>
+    <div id="grammar">
+Decl : VarDecl | FunDecl<br/>
+VarDecl : Type "id" '=' Exp ';'<br/>
+FunctionBegin : VarDecl FunctionBegin | Stmt<br/>
+FunDecl : Type "id" '(' FArgsOpt ')' '{' FunctionBegin StmtStar '}' | "Void" "id" '(' FArgsOpt ')' '{' FunctionBegin StmtStar '}'<br/>
+Type : "Int" | "Bool" | '(' Type ',' Type ')' | '[' Type ']' | "id"<br/>
+FArgs : FArgs ',' Type "id" | Type "id"<br/>
+FArgsOpt : %empty | FArgs<br/>
+Stmt : '{' StmtStar '}' | "if" '(' Exp ')' Stmt | "if" '(' Exp ')' Stmt "else" Stmt | "while" '(' Exp ')' Stmt | "id" Field '=' Exp ';' | FunCall ';' | "return" ';' | "return" Exp ';'<br/>
+StmtStar : %empty | Stmt StmtStar<br/>
+Exp : "id" Field | Exp '+' Exp | Exp '-' Exp | Exp '*' Exp | Exp '/' Exp | Exp '%' Exp | Exp "==" Exp | Exp '<' Exp | Exp '>' Exp | Exp "<=" Exp | Exp ">=" Exp | Exp "! =" Exp | Exp "&&" Exp | Exp "||" Exp | Exp ':' Exp | '!' Exp | '-' Exp | "int" | "False" | "True" | '(' Exp ')' | FunCall | '[' ']' | '(' Exp ',' Exp ')'<br/>
+Field : %empty | '.' "hd" Field | '.' "tl" Field | '.' "fst" Field | '.' "snd" Field<br/>
+FunCall : "id" '(' ')' | "id" '(' ActArgs ')'<br/>
+ActArgs : Exp | Exp ',' ActArgs
+    </div>
 
     <p>Enter spl code here:</p>
 
